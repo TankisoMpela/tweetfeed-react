@@ -1,51 +1,51 @@
 const messages = [
   {
-    fromto: "mucahitsahin6-cnecati",
+    fromto: "thabom-amina_diallo",
     messages: [
       {
-        message: "merhaba",
-        from: "mucahitsahin6",
+        message: "Hey Amina, love your Dribbble shots!",
+        from: "thabom",
       },
       {
-        message: "merhaba",
-        from: "cnecati",
+        message: "Thank you Thabo! Your app looks amazing too",
+        from: "amina_diallo",
       },
       {
-        message: "merhaba",
-        from: "cnecati",
+        message: "Would you be open to collaborating on something?",
+        from: "thabom",
       },
       {
-        message: "merhaba",
-        from: "mucahitsahin6",
+        message: "Absolutely! Let me know what you have in mind",
+        from: "amina_diallo",
       },
     ],
   },
   {
-    fromto: "mucahitsahin6-yasin",
+    fromto: "thabom-kwame_owusu",
     messages: [
       {
-        message: "merhaba",
-        from: "mucahitsahin6",
+        message: "Yo Kwame, you going to the meetup on Friday?",
+        from: "thabom",
       },
       {
-        message: "merhaba",
-        from: "yasin",
+        message: "Yeah man! Already RSVP'd",
+        from: "kwame_owusu",
       },
       {
-        message: "merhaba",
-        from: "yasin",
+        message: "Cool, see you there",
+        from: "kwame_owusu",
       },
       {
-        message: "merhaba",
-        from: "mucahitsahin6",
+        message: "Bring your laptop, I want to show you something",
+        from: "thabom",
       },
       {
-        message: "merhaba",
-        from: "mucahitsahin6",
+        message: "bet!",
+        from: "thabom",
       },
       {
-        message: "merhaba",
-        from: "mucahitsahin6",
+        message: "Say less 🔥",
+        from: "kwame_owusu",
       },
     ],
   },
