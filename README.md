@@ -19,7 +19,4 @@ After downloading the project, the <b> "npm install" </b> command is entered int
 
 <div>
   <img src="https://github.com/mucahit-sahin/twitter-web-clone-react/blob/master/img/mobile1.png" width="25%"/>
-  <img src="https://github.com/mucahit-sahin/twitter-web-clone-react/blob/master/img/mobile2.png" width="25%"/>
-  <img src="https://github.com/mucahit-sahin/twitter-web-clone-react/blob/master/img/mobile3.png" width="25%"/>
-  <img src="https://github.com/mucahit-sahin/twitter-web-clone-react/blob/master/img/mobile4.png" width="25%"/>
 </div>
