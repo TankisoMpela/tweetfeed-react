@@ -1,9 +1,12 @@
 import * as React from "react";
 
-function CommentIcon(props) {
+function CommentIcon({ active, ...props }) {
   return (
     <svg
       viewBox="0 0 24 24"
+      fill={active ? "currentColor" : "none"}
+      stroke="currentColor"
+      strokeWidth={active ? 0 : 1.5}
       className="prefix__r-4qtqp9 prefix__r-yyyyoo prefix__r-1xvli5t prefix__r-dnmrzs prefix__r-bnwqim prefix__r-1plcrui prefix__r-lrvibr prefix__r-1hdv0qi"
       {...props}
     >

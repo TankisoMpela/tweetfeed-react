@@ -125,15 +125,15 @@ function Post({ post, onLikeToggle }) {
             <span>{comments.length || post.reply_count || 0}</span>
           </div>
           <div onClick={handleLike} style={{ cursor: "pointer", ...(liked ? { color: "#e0245e" } : {}) }}>
-            <FavoriteIcon className="postIcon" />
-            <span>{likeCount}</span>
+            <FavoriteIcon className="postIcon" active={liked} />
+            <span>{likeCount > 0 ? likeCount : ""}</span>
           </div>
           <div onClick={handleRepost} style={{ cursor: "pointer", ...(reposted ? { color: "#17bf63" } : {}) }}>
-            <RetweetIcon className="postIcon" />
-            <span>{repostCount}</span>
+            <RetweetIcon className="postIcon" active={reposted} />
+            <span>{repostCount > 0 ? repostCount : ""}</span>
           </div>
           <div onClick={handleBookmark} style={{ cursor: "pointer", ...(bookmarked ? { color: "#1da1f2" } : {}) }}>
-            <BookmarkIcon className="postIcon" />
+            <BookmarkIcon className="postIcon" active={bookmarked} />
           </div>
         </div>
         {showComment && (

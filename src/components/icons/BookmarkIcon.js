@@ -1,10 +1,12 @@
 import * as React from "react";
 
-function BookmarkIcon(props) {
-  if (props.active) {
+function BookmarkIcon({ active, ...props }) {
+  if (active) {
     return (
       <svg
         viewBox="0 0 24 24"
+        fill="currentColor"
+        stroke="none"
         className="prefix__r-13gxpu9 prefix__r-4qtqp9 prefix__r-yyyyoo prefix__r-lwhw9o prefix__r-dnmrzs prefix__r-bnwqim prefix__r-1plcrui prefix__r-lrvibr"
         {...props}
       >
@@ -15,6 +17,9 @@ function BookmarkIcon(props) {
   return (
     <svg
       viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.5}
       className="prefix__r-jwli3a prefix__r-4qtqp9 prefix__r-yyyyoo prefix__r-lwhw9o prefix__r-dnmrzs prefix__r-bnwqim prefix__r-1plcrui prefix__r-lrvibr"
       {...props}
     >
