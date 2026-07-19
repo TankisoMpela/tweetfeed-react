@@ -3,8 +3,16 @@ import React from "react";
 import { VerifiedIcon } from "../icons";
 import "./ProfileCard.css";
 
-const ProfileCard = ({ active }) => {
+const ProfileCard = ({ profile, active }) => {
   const [isVisible, setIsVisible] = React.useState(false);
+
+  if (!profile) return null;
+
+  const displayName = profile.display_name || profile.full_name || "User";
+  const handle = profile.username || "user";
+  const bio = profile.bio || "";
+  const avatar = profile.avatar_url;
+
   return (
     <div
       className={
@@ -14,28 +22,30 @@ const ProfileCard = ({ active }) => {
       onMouseLeave={() => setIsVisible(false)}
     >
       <div>
-        <Avatar src="https://avatars2.githubusercontent.com/u/38807255?s=460&u=deb087d587be7f6a4000e4e710ec4d1daa6fde84&v=4" />
+        <Avatar src={avatar} />
         <div>
           <span>Follow</span>
         </div>
       </div>
       <div>
-        <span>Mücahit Şahin</span>
+        <span>{displayName}</span>
         <VerifiedIcon />
       </div>
       <div>
-        <span>@mucahitsahin6</span>
+        <span>@{handle}</span>
       </div>
-      <div>
-        <span>Junior Software Developer</span>
-      </div>
+      {bio && (
+        <div>
+          <span>{bio}</span>
+        </div>
+      )}
       <div>
         <span>
-          <span>167</span>
+          <span>0</span>
           <span>Following</span>
         </span>
         <span>
-          <span>167</span>
+          <span>0</span>
           <span>Followers</span>
         </span>
       </div>

@@ -1,6 +1,4 @@
-import posts from "../../data/posts";
-
-const initialstate = { posts };
+const initialstate = { posts: [] };
 function postsReducer(state = initialstate, action) {
   switch (action.type) {
     case "ADD_POST":

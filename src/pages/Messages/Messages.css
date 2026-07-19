@@ -55,3 +55,18 @@
     min-height: 100vh;
   }
 }
+
+.noMessages {
+  padding: 40px 20px;
+  text-align: center;
+}
+.noMessages h2 {
+  color: #ffffff;
+  font-size: 19px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.noMessages p {
+  color: #8899a6;
+  font-size: 15px;
+}

@@ -37,10 +37,47 @@
   color: #ffffff;
   font-size: 15px;
   gap: normal;
-  margin: 59px 0px 0px;
+  margin: 20px 0px 0px;
 }
 .acceptTermBlue {
   color: #1b95e0;
+}
+
+.googleSignInBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 9999px;
+  background-color: white;
+  color: #3c4043;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.googleSignInBtn:hover {
+  background-color: #f8f9fa;
+}
+
+.googleSignInBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.signupGoogleBtn {
+  margin: 30px 0px 20px;
+}
+
+.loginLinkRow {
+  text-align: center;
+  color: #ffffff;
+  font-size: 14px;
+  margin-top: 30px;
 }
 
 .signupBtn {

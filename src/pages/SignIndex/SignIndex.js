@@ -27,7 +27,7 @@ function SignIndex() {
           </div>
           <div>
             <span>
-              <ChatIcon className="indexIcon" /> Join to conversation.
+              <ChatIcon className="indexIcon" /> Join the conversation.
             </span>
           </div>
         </div>
@@ -38,7 +38,7 @@ function SignIndex() {
           <span className="header">
             See what's happening in the world right now
           </span>
-          <span className="join">Join Twitter today.</span>
+          <span className="join">Join Tweetfeed today.</span>
           <div className="buttons">
             <Link to="/signup" className="signup">
               <div className="signupItem">

@@ -1,0 +1,59 @@
+.bookmarksHeader {
+  position: sticky;
+  z-index: 2;
+  top: 0px;
+  background-color: var(--main-bg-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 0.5px solid var(--border-color);
+}
+.bookmarksHeader .MuiSvgIcon-root {
+  margin: 8px 25px 8px 12px;
+  padding: 7px;
+  color: var(--blue);
+  border-radius: 9999px;
+}
+.bookmarksHeader .MuiSvgIcon-root:hover {
+  background-color: var(--hover-blue-color);
+}
+.bookmarksHeader div span:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  font-size: 19px;
+  font-weight: 800;
+}
+.bookmarksHeader div span:nth-child(2) {
+  color: #8899a6;
+  font-size: 13px;
+}
+.emptyState {
+  padding: 40px 20px;
+  text-align: center;
+}
+.emptyState h2 {
+  color: #ffffff;
+  font-size: 19px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.emptyState p {
+  color: #8899a6;
+  font-size: 15px;
+}
+.noPosts {
+  padding: 40px 20px;
+  text-align: center;
+}
+.noPosts span:nth-child(1) {
+  color: #ffffff;
+  font-size: 19px;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 8px;
+}
+.noPosts span:nth-child(2) {
+  color: #8899a6;
+  font-size: 15px;
+}

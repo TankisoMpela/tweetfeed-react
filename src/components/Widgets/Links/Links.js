@@ -16,7 +16,7 @@ const Links = () => {
           More
           <MoreHoriz />
         </span>
-        <span>2021 Twitter, Inc.</span>
+        <span>© 2026 Tweetfeed Africa</span>
       </div>
     </div>
   );

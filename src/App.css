@@ -15,6 +15,14 @@ body {
   width: 100vw;
   box-sizing: border-box;
 }
+
+.fullPageLoading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: var(--main-bg-color);
+}
 @media (min-width: 0) and (max-width: 350px) {
   * {
     font-size: 0.9rem !important;

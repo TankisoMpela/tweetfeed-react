@@ -1,29 +1,41 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { useLocation } from "react-router";
-import { addMessageAction } from "../../store/actions/messagesActions";
 import { EmojiIcon, GifIcon, PhotoIcon, SendIcon } from "../icons";
+import { useAuth } from "../../contexts/AuthContext";
+import { supabase } from "../../lib/supabase";
 import "./ChatInputs.css";
 
-const ChatInputs = () => {
-  var fromto = useLocation().pathname.split("/")[2];
+const ChatInputs = ({ conversationId, onMessageSent }) => {
+  const { user } = useAuth();
   const [isFocus, setIsFocus] = React.useState(false);
   const [message, setMessage] = React.useState("");
-  const dispatch = useDispatch();
-  const sendMessage = () => {
-    if (fromto !== "" && message !== "") {
-      dispatch(addMessageAction(message, fromto));
+
+  const sendMessage = async () => {
+    if (!message.trim() || !conversationId || !user) return;
+
+    const newMsg = {
+      sender_id: user.id,
+      receiver_id: conversationId,
+      content: message.trim(),
+    };
+
+    const { data, error } = await supabase
+      .from("messages")
+      .insert([newMsg])
+      .select("*")
+      .single();
+
+    if (!error && data) {
+      onMessageSent(data);
       setMessage("");
     }
   };
+
   return (
     <div className="chatInputs">
       <PhotoIcon />
       <GifIcon />
       <div
-        className={
-          isFocus ? "chatTextInput chatTextInputFocus" : "chatTextInput"
-        }
+        className={isFocus ? "chatTextInput chatTextInputFocus" : "chatTextInput"}
       >
         <input
           type="text"
@@ -38,7 +50,7 @@ const ChatInputs = () => {
         />
         <EmojiIcon />
       </div>
-      <div onClick={() => sendMessage()}>
+      <div onClick={sendMessage}>
         <SendIcon />
       </div>
     </div>

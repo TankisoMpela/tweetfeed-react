@@ -4,16 +4,10 @@ import { Link } from "react-router-dom";
 import { VerifiedIcon } from "../icons";
 import "./LastChat.css";
 
-const LastChat = ({
-  displayName,
-  username,
-  userimage,
-  datetime,
-  lastMessage,
-  verified,
-}) => {
+const LastChat = ({ userId, displayName, username, userimage, lastMessage, createdAt }) => {
+  const date = createdAt ? new Date(createdAt).toLocaleDateString() : "";
   return (
-    <Link className="lastChat" to={`/Messages/mucahitsahin6-${username}`}>
+    <Link className="lastChat" to={`/Messages/${userId}`}>
       <div>
         <Avatar src={userimage} />
       </div>
@@ -21,10 +15,10 @@ const LastChat = ({
         <div>
           <span>
             {displayName}
-            {verified && <VerifiedIcon />}
+            <VerifiedIcon />
           </span>
           <span>@{username}</span>
-          <span>{datetime}</span>
+          <span>{date}</span>
         </div>
         <span>{lastMessage}</span>
       </div>

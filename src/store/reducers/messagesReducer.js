@@ -1,5 +1,4 @@
-import messages from "../../data/messages";
-const initialState = { messages };
+const initialState = { messages: [] };
 function messagesReducer(state = initialState, action) {
   switch (action.type) {
     case "ADD_MESSAGE":

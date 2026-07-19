@@ -151,6 +151,58 @@
   color: var(--blue);
 }
 
+.profileEditForm {
+  padding: 15px;
+}
+
+.editProfileBtns {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.cancelBtn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--blue);
+  border-radius: 9999px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.cancelBtn:hover {
+  background-color: var(--hover-blue-color);
+}
+
+.profileBiography span:nth-child(5),
+.profileBiography span:nth-child(6) {
+  color: var(--gray);
+  font-size: 15px;
+  margin-top: 3px;
+}
+
+.editProfile {
+  cursor: pointer;
+}
+
+.noPosts {
+  padding: 40px 20px;
+  text-align: center;
+}
+.noPosts span:nth-child(1) {
+  color: #ffffff;
+  font-size: 19px;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 8px;
+}
+.noPosts span:nth-child(2) {
+  color: #8899a6;
+  font-size: 15px;
+}
+
 @media (min-width: 0) and (max-width: 1000px) {
   .backgroundImage {
     height: 100px;

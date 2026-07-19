@@ -10,14 +10,18 @@ import DrawerBar from "../../components/DrawerBar/DrawerBar";
 import { Avatar } from "@material-ui/core";
 import HomeBox from "../../components/HomeBox/HomeBox";
 import Loading from "../../components/Loading/Loading";
+import { useAuth } from "../../contexts/AuthContext";
 
 function Explore() {
+  const { getUserAvatar } = useAuth();
   const [isDrawerBar, setIsDrawerBar] = React.useState(false);
   const [loading, setLoading] = React.useState(true);
-  setTimeout(() => {
-    setLoading(false);
-  }, 2000);
-  document.title = "Explore / Twitter";
+  React.useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1000);
+    document.title = "Explore / Tweetfeed";
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <HomeBox>
       <div className="feed">
@@ -30,9 +34,9 @@ function Explore() {
         <DrawerBar active={isDrawerBar} />
         <div className="explore-header">
           <div onClick={() => setIsDrawerBar(true)}>
-            <Avatar src="https://avatars.githubusercontent.com/u/38807255?s=460&u=deb087d587be7f6a4000e4e710ec4d1daa6fde84&v=4" />
+            <Avatar src={getUserAvatar()} />
           </div>
-          <SearchInput placeholder="Search Twitter" />
+          <SearchInput placeholder="Search Tweetfeed" />
           <SettingsIcon />
         </div>
         <div className="exploreContent">
