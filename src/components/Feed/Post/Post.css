@@ -69,65 +69,52 @@
   flex: 0.25;
   display: flex;
   align-items: center;
+  color: var(--gray);
+  transition: color 0.2s ease;
 }
 .post-event > div > span {
-  color: var(--gray);
   font-size: 13px;
   transition: color 0.2s ease;
 }
 .postIcon {
-  fill: var(--gray);
   width: 18px;
   padding: 10px;
   border-radius: 9999px;
-  transition: fill 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+  transition: background-color 0.2s ease, transform 0.15s ease;
 }
+
 /* Comment - 1st child */
-.post-event div:nth-child(1) .postIcon:hover {
-  fill: var(--blue);
-  background-color: var(--hover-blue-color);
-}
-.post-event div:nth-child(1) .postIcon:hover + span {
+.post-event div:nth-child(1):hover {
   color: var(--blue);
 }
-/* Like - 2nd child */
-.post-event div:nth-child(2) .postIcon:hover {
-  fill: #e0245e;
-  background-color: rgba(224, 36, 94, 0.1);
+.post-event div:nth-child(1):hover .postIcon {
+  background-color: var(--hover-blue-color);
 }
-.post-event div:nth-child(2) .postIcon:hover + span {
+/* Like - 2nd child */
+.post-event div:nth-child(2):hover {
   color: #e0245e;
 }
-/* Repost - 3rd child */
-.post-event div:nth-child(3) .postIcon:hover {
-  fill: #17bf63;
-  background-color: rgba(23, 191, 99, 0.1);
+.post-event div:nth-child(2):hover .postIcon {
+  background-color: rgba(224, 36, 94, 0.1);
 }
-.post-event div:nth-child(3) .postIcon:hover + span {
+/* Repost - 3rd child */
+.post-event div:nth-child(3):hover {
   color: #17bf63;
 }
+.post-event div:nth-child(3):hover .postIcon {
+  background-color: rgba(23, 191, 99, 0.1);
+}
 /* Bookmark - 4th child */
-.post-event div:nth-child(4) .postIcon:hover {
-  fill: var(--blue);
+.post-event div:nth-child(4):hover {
+  color: var(--blue);
+}
+.post-event div:nth-child(4):hover .postIcon {
   background-color: var(--hover-blue-color);
 }
 
-/* Button click bounce animation */
-@keyframes buttonPop {
-  0% { transform: scale(1); }
-  30% { transform: scale(1.35); }
-  60% { transform: scale(0.9); }
-  100% { transform: scale(1); }
-}
+/* Button click scale effect */
 .post-event div:active .postIcon {
   transform: scale(0.85);
-}
-.post-event span {
-  transition: color 0.2s ease;
-}
-/* Active state: count color inherits parent color */
-.post-event div > .postIcon + span {
-  transition: color 0.2s ease;
 }
 
 .post-image {
