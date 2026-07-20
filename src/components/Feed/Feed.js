@@ -14,9 +14,11 @@ function Feed() {
   const { user, profile, getUserAvatar } = useAuth();
   const [isDrawerBar, setIsDrawerBar] = React.useState(false);
   const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
   const [posts, setPosts] = useState([]);
 
   const fetchPosts = async () => {
+    try {
     const { data: postsData, error } = await supabase
       .from("posts")
       .select(`
@@ -25,10 +27,11 @@ function Feed() {
         reposts(count)
       `)
       .order("created_at", { ascending: false })
-      .limit(50);
+      .limit(100);
 
     if (error) {
       console.error("Error fetching posts:", error);
+      setError(error.message);
       setLoading(false);
       return;
     }
@@ -55,6 +58,10 @@ function Feed() {
       const enrichedPosts = await enrichPostsWithUserData(mappedPosts);
       setPosts(enrichedPosts);
     }
+    } catch (err) {
+      console.error("Error fetching posts:", err);
+      setError(err.message);
+    }
     setLoading(false);
   };
 
@@ -63,17 +70,10 @@ function Feed() {
 
     const postIds = postsData.map((p) => p.id);
 
-    const { data: myLikes } = await supabase
-      .from("likes")
-      .select("post_id")
-      .eq("user_id", user.id)
-      .in("post_id", postIds);
-
-    const { data: myReposts } = await supabase
-      .from("reposts")
-      .select("post_id")
-      .eq("user_id", user.id)
-      .in("post_id", postIds);
+    const [{ data: myLikes }, { data: myReposts }] = await Promise.all([
+      supabase.from("likes").select("post_id").eq("user_id", user.id).in("post_id", postIds),
+      supabase.from("reposts").select("post_id").eq("user_id", user.id).in("post_id", postIds),
+    ]);
 
     const likedPostIds = new Set(myLikes?.map((l) => l.post_id) || []);
     const repostedPostIds = new Set(myReposts?.map((r) => r.post_id) || []);
@@ -137,6 +137,22 @@ function Feed() {
       <TweetBox onTweetPosted={handleTweetPosted} />
       {loading ? (
         <Loading />
+      ) : error ? (
+        <div style={{ padding: 40, textAlign: "center", color: "#8899a6" }}>
+          <p style={{ fontSize: 18, fontWeight: 600, color: "#e0245e" }}>Something went wrong</p>
+          <p style={{ marginTop: 8, fontSize: 14 }}>{error}</p>
+          <button
+            onClick={() => { setLoading(true); setError(null); fetchPosts(); }}
+            style={{ marginTop: 16, padding: "10px 24px", background: "#1da1f2", color: "white", border: "none", borderRadius: 9999, fontWeight: 700, cursor: "pointer", fontSize: 14 }}
+          >
+            Try Again
+          </button>
+        </div>
+      ) : posts.length === 0 ? (
+        <div style={{ padding: 40, textAlign: "center", color: "#8899a6" }}>
+          <p style={{ fontSize: 18, fontWeight: 600 }}>Welcome to TweetFeed!</p>
+          <p style={{ marginTop: 8, fontSize: 14 }}>Be the first to post something.</p>
+        </div>
       ) : (
         <article>
           {posts.map((post) => (

@@ -116,7 +116,7 @@ function Post({ post, onLikeToggle }) {
         <div className="post-content">{post.content}</div>
         {post.image_url && (
           <div className="post-image">
-            <img src={post.image_url} alt="post" />
+            <img src={post.image_url} alt="post" loading="lazy" decoding="async" />
           </div>
         )}
         <div className="post-event">
@@ -154,4 +154,4 @@ function Post({ post, onLikeToggle }) {
   );
 }
 
-export default Post;
+export default React.memo(Post);
